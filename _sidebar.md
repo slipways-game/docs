@@ -1,0 +1,11 @@
+* [Using mods](/)
+* Creating a mod
+  * [Overview](creating/overview.md)
+  * [Contents of a mod](creating/contents.md)
+  * [/Making the spreadsheets](creating/spreadsheets.md)
+  * [/Writing the code](creating/code.md)
+  * [/Preparing the text](creating/text.md)
+  * [/Adding graphics and sound](creating/assets.md)
+  * [Using developer mode](creating/devmode.md)
+  * [Publishing your mod](creating/publishing.md)
+  * [/Glossary](creating/glossary.md)

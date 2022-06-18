@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slipways :: Modding documentation</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css">
+  <style type="text/css">
+    body {
+      background: #282828;
+    }
+    .loading {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      margin: auto;
+      height: 2em;
+      color: #444;
+      font: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="loading">Loading docs...</div>
+  </div>
+  <script>
+    window.$docsify = {
+      name: 'Slipways Modding Documentation',
+      repo: 'https://github.com/slipways-game/docs',
+      homepage: 'home.md',
+      subMaxLevel: 2,
+      loadSidebar: true,
+      auto2top: true
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+</body>
+</html>
