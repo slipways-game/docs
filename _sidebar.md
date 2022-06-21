@@ -1,5 +1,6 @@
 * [Using mods](/)
 * [Creating a mod](creating/overview.md)
+  * [Overview](creating/overview.md)
   * [Contents of a mod](creating/contents.md)
   * [Making the spreadsheets](creating/spreadsheets.md)
   * [Writing the code](creating/code.md)
