@@ -21,7 +21,7 @@ This documentation attempts to cover the basics, but it will never be fully exha
 
 ## Getting help
 
-We're trying our best with the documentation and the examples, but the Slipways codebase is quite big, and the possibilities with the modding tools will always be greater than what we can describe and explain here. If you're having any trouble, you can to the game's [Discord server](discord.gg/qD97EDu) and ask stuff in the **#modding** channel. Chances are one of the other modders will be able to help you. If not, Jakub (the game's developer) will also be checking this channel from time to time, so you might be able to get answers straight from the horse's mouth.
+We're trying our best with the documentation and the examples, but the Slipways codebase is quite big, and the possibilities with the modding tools will always be greater than what we can describe and explain here. If you're having any trouble, you can to the game's [Discord server](https://discord.gg/qD97EDu) and ask stuff in the **#modding** channel. Chances are one of the other modders will be able to help you. If not, Jakub (the game's developer) will also be checking this channel from time to time, so you might be able to get answers straight from the horse's mouth.
 
 ## Developer mode
 

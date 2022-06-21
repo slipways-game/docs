@@ -17,7 +17,7 @@ contents = [
 
 As you can see, the files listed there come in a few different flavors. Each of these flavors gets its own chapter later, but here is a quick summary of what they are for and how they are used.
 
-## `.xls` files with gameplay data
+## `.xls` files with gameplay data :id=xls-files
 
 These files will contain multiple individual sheets with special names, like "Resources" or "Technologies". Each sheets deals with a different type of object in the game. Each row in such a sheet specifies the properties of one object of that type, eg. a resource or a technology.
 
@@ -30,7 +30,7 @@ The easiest way to create those spreadsheets is to start from the core files.
 
 Creating each specific object type is described in the next chapter, *[Making the spreadsheets](creating/spreadsheets.md)*.
 
-## `.py` files with gameplay code
+## `.py` files with gameplay code :id=py-files
 
 For many object types, just specifying a new row in a spreadsheet will not be enough - you will also have to write some custom code to describe the rules governing eg. your own structure.
 
@@ -38,7 +38,7 @@ These rules will be stored inside `.py` files that you will need to add to your 
 
 Writing the code gets its own chapter later, predictably named *[Writing the code](creating/code.md)*.
 
-## `text-<language>.xls` localization files
+## `text-<language>.xls` localization files :id=localization-files
 
 All text in Slipways supports localization to various languages. This includes text used in your mod.  The spreadsheet itself is very simple - each sheet has two columns, "ID" and "Text". "ID" is the technical identifier for the localized string. "Text" is the text of that string in a given language and can include some special tags to eg. add resource icons or provide spaces to be filled out later by the game's code.
 
@@ -56,7 +56,7 @@ The `/ lang("english")` is a language tag, making sure that this file is only lo
 
 Read more about this in the *[Preparing the text](creating/text.md)* chapter.
 
-## `.win` and `.mac` files with graphics/sound assets
+## `.win` and `.mac` files with graphics/sound assets :id=asset-files
 
 These files are created using the Unity-based Slipways [asset-tool](https://github.com/slipways-game/asset-tool). You will need to do this to add custom icons, 3d models and sounds for your additions to the game. 
 
