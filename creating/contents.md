@@ -21,14 +21,9 @@ As you can see, the files listed there come in a few different flavors. Each of 
 
 These files will contain multiple individual sheets with special names, like "Resources" or "Technologies". Each sheets deals with a different type of object in the game. Each row in such a sheet specifies the properties of one object of that type, eg. a resource or a technology.
 
-The easiest way to create those spreadsheets is to start from the core files. 
+The easiest way to create those spreadsheets is to start from the core files and copy the needed sheets from there.
 
-* Get the `game.xls` spreadsheet from the [core-files](https://github.com/slipways-game/core-files). This contains all the objects defined by the core game.
-* Copy the sheet you're interested in to a new spreadsheet. Eg. if you want to add a new structures, copy the "Structures" sheet.
-* Delete all the rows, keeping the black "header" row at the top intact.
-* Add one row for each new thing of that type that you want to add to the game.
-
-Creating each specific object type is described in the next chapter, *[Making the spreadsheets](creating/spreadsheets.md)*.
+Doing this and creating each specific object type is described in the next chapter, *[Making the spreadsheets](creating/spreadsheets.md)*.
 
 ## `.py` files with gameplay code :id=py-files
 
