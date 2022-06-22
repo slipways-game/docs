@@ -27,6 +27,18 @@ Whenever you are allowed to specify a cost in your spreadsheet, the syntax is al
 
 These are used to specify custom rulesets for an object, scripted in Python. Details on how to create those are in the [code chapter](creating/code.md).
 
+
+
+## Tricks that work with any sheet
+
+Instead of overriding a row from the core files, you can completely remove it by prefixing the ID with `!`. For example, if you put `!quantum_computing` in the ID column of your `Technologies` sheet, it will remove the Quantum Computing tech from the game whenever your mod is loaded.
+
+You can also temporarily "comment out" rows by prefixing the ID with `//`. Any rows starting like this are ignored.
+
+The game also ignores any rows that have an empty ID, and any columns that it doesn't recognize the names for. You can use this to write comments to yourself in the spreadsheet or organize things using divider rows.
+
+
+
 ## Industries
 
 The node's industry is what actually controls the needs and products, how the node upgrades from level and many, many other aspects of how the node works. Here is a basic outline of what goes into each column:
@@ -93,8 +105,8 @@ This sheet is where you define the **planetary projects** that can be built on p
 
 This is a simple section where you list which of the structures, industries, action, projects etc. in your mod should be accessible to the player from the start of the scenario. Others can be added by technologies and perks, but the ones listed here are always available.
 
-* **ID** - what to unlock, eg. `structure.something`, `project.something`, `industry.something` etc.
-* **Context** - where it should be unlocked, which is relevant for eg. actions or industries. Should be `planet.[planet_type]` or `structure.[structure_type]`.
+* **ID** What to unlock, eg. `structure.something`, `project.something`, `industry.something` etc.
+* **Context** Where it should be unlocked, which is relevant for eg. actions or industries. Should be `planet.[planet_type]` or `structure.[structure_type]`. If empty, the object is unlocked "everywhere".
 
 ?> Examples: The 'assets' example mod has an example structure which is unlocked this way.
 
@@ -106,22 +118,88 @@ Most of the ones in `game.xls` will include a description. To override the base 
 
 ## Technologies 
 
+The "Technologies" sheet is used for all the techs that you want the player to be able to invent in-game.
+
+* **ID** Just pick any ID you like. We usually stick to lowercase letters, `connected_by_underscores` if necessary.
+* **Races** The IDs of the races that have this tech in their pool. Comma-separated.
+* **BVADS columns** These are just here to visualize which races have access. They aren't required or used by the game engine.
+* **Level** Controls both the tier the technology is encountered in (A-E) and its cost. The number is the relative cost with the tier, usually `0-10`, but can go above and below if necessary.
+* **Leads To** The IDs of any upgrade technologies that become available once this one is invented. The upgrade tech should have their "Races" column empty - they are unlocked through the upgrade process regardless of races.
+* **Implemented** Put an "X" in this column. It had other uses in the past, but now it's just a quick toggle to enable/disable techs.
+
+The **Effects** column is a list of what the tech does once invented, one effect per line. These effects get their own description below.
+
 ### Tech effects
+
+<div class="definition">
+
+**increase()/reduce()** 
+Change the value of a named property in the game. The game supports adjusting any named constant in the spreadsheet, for example `increase(asteroid.bonus, 50%)` will increase how much money you get for asteroids by 50%. You can also change cost this way: `reduce(project.cost.$, 5)` will reduce the cost of all projects by 5$.
+
+</div>
+<div class="definition">
+
+**unlock()**
+Unlocks something, like an industry or a structure. `unlock(structure.frobnicator)` will unlock that structure for building. Industries take an additional parameter specifying where the industry will become available, eg. `unlock(industry.lava_geo, planet.lava/mining/ice)` to unlock this industry on three types of planets.
+
+</div>
+<div class="definition">
+
+**project()**
+Enables a project with a specific ID being built, eg. `project(culture_hub)`.
+
+</div>
+<div class="definition">
+
+**quality()**
+Enables a global quality, specified by a given Python expression, eg. `quality(GeneticAdjustments())`. This type of quality should have an `applies()` method to control which nodes 
+it affects. You can find more info on how to create qualities in the [code chapter](creating/code.md).
+
+</div>
+<div class="definition">
+
+**cond()**
+Similarly, this enables a global condition, again specified as a Python expression, eg. `cond(EmpathicLinksTradeRoutes())`. You can find more info on how to create conditions in the [code chapter](creating/code.md).
+
+</div>
+<div class="definition">
+
+**supersede()**
+Used in upgrade techs sometimes, specifying their parent tech, eg. `supersede(gravitic_mining)`. Indicates that the new technology should completely override the effects of its parent tech, instead of being cumulative.
+
+</div>
+<div class="definition">
+
+**explain()**
+Include an explanation of something in the tech description, eg. `explain(resource.E)` to attach a description of how energy works. Usually used for resources, since project/structure/industry explanations are included automatically.
+
+</div>
+<div class="definition">
+
+**description()**
+The description of a technology is usually auto-generated from its effects. You can use this special effect to replace the whole description with a localized string of a specified ID. You can also provide arguments to fill placeholders in this string, eg. `description(tech.frobulation.desc, 12, 25%)`.
+
+</div>
 
 ## Perks
 
+Perks are very similar to technologies - they use the same type of effect mini-language to specify how they work, and they're attached to races. The only difference is in when and how they are applied.
+
+* **ID** Just pick any ID you like. We usually stick to lowercase letters, `connected_by_underscores` if necessary.
+* **Race** The IDs of the race this perk belongs to.
+* **Effects** Controls both the tier the technology is encountered in (A-E) and its cost. The number is the relative cost with the tier, usually `0-10`, but can go above and below if necessary.
+* **Short Text** Replaces the perk icon if it's missing. You should probably ignore this column and instead create an icon called `perk_[your_perk_id]` in an [asset bundle](creating/assets.md).
+
 ## Resources
+
+?> Examples: The 'assets' example mod has a new resource type.
 
 ## Planet types
 
+?> Examples: The 'assets' example mod has a new planet type.
+
 ## Races
 
+?> Examples: The 'New council race' example mod shows how this is done.
+
 ## Quests
-
-## Tricks that work with any sheet
-
-Instead of overriding a row from the core files, you can completely remove it by prefixing the ID with `!`. For example, if you put `!quantum_computing` in the ID column of your `Technologies` sheet, it will remove the Quantum Computing tech from the game whenever your mod is loaded.
-
-You can also temporarily "comment out" rows by prefixing the ID with `//`. Any rows starting like this are ignored.
-
-The game also ignores any rows that have an empty ID, and any columns that it doesn't recognize the names for. You can use this to write comments to yourself in the spreadsheet or organize things using divider rows.

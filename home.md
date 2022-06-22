@@ -1,4 +1,4 @@
-!> This documentation is a work in progress. It will get fleshed out more over the next few days, so many things are missing for now.
+!> This documentation is a work in progress. It will get fleshed out more over time - thanks for your patience!
 
 # Using mods
 
