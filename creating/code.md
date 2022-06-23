@@ -88,13 +88,11 @@ Many methods in the game engine will either deliver you an object of one of thes
 
 ### Qualities: local effects on nodes
 
-#### Local effect types
+?> Examples: The 'Techs' example mod includes all the different types of qualities being used.
 
 ### Global conditions: reacting to things happening
 
-.. what it is..
-
-.. how to write one..
+?> Examples: The 'Techs' example mod includes a few flavors of global conditions being used.
 
 #### Activating conditions
 
